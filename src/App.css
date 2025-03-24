@@ -1,0 +1,494 @@
+.radio-inputs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  background-color: #5148ff;
+  box-sizing: border-box;
+  font-size: 20px;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 0;
+}
+
+body {
+  overflow: hidden;
+}
+
+.radio-inputs .radio .name {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  color: #FFF;
+  transition: all 0.15s ease-in-out;
+  position: relative;
+}
+
+.radio .name.active {
+  background-color: white;
+  color: #5148ff;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.radio .name:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.radio .name.active:hover {
+  background-color: white;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  position: relative;
+  width: 90%;
+  max-width: 550px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+  animation: modalAppear 0.3s forwards;
+}
+
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #5148ff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 38px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.modal-close:hover {
+  background-color: #413ad7;
+}
+
+.modal-content form input,
+.modal-content form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.modal-content form input:focus,
+.modal-content form textarea:focus {
+  border-color: #5148ff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(81, 72, 255, 0.2);
+}
+
+.modal-content form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.modal-content form button {
+  background-color: #5148ff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.modal-content form button:hover {
+  background-color: #413ad7;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    padding: 20px;
+  }
+}
+
+.headerFijo {
+  position: sticky;
+  top: 5px;
+  width: 100%;
+  background-color: white;
+  z-index: 100;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  display: block;
+  width: 100%;
+}
+
+textarea {
+  background-color: white;
+  padding-right: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  size: 18px;
+  color: #333;
+}
+
+input {
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  size: 18px;
+  color: #333;
+}
+
+.contenedorPrincipal {
+  width: 100vw;
+  min-height: calc(100vh - 85px);
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin-top: 85px;
+  overflow: hidden;
+}
+
+.contenedorListaTareas {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 100px;
+  top: 110px;
+  padding-right: 40px;
+  overflow-y: auto;
+  position: absolute;
+  max-height: calc(100vh - 180px);
+}
+
+.listaTareas {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding-bottom: 100px;
+  width: 100%;
+}
+
+.mensajeNoTareas {
+  text-align: center;
+  font-style: italic;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.itemTarea {
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: calc(33.33% - 15px);
+  min-width: 250px;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  position: relative;
+  transition: background-color 1s ease;
+}
+
+.botonAgregarTarea {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #5148ff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 65px;
+  height: 70px;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 0;
+  padding-top: 13px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.tituloListaTareas {
+  position: sticky;
+  top: 65px;
+  background-color: white;
+  z-index: 90;
+  padding: 10px 0px;
+  margin: 0;
+  width: 100%;
+}
+
+.contenidoTarea {
+  flex-grow: 1;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.tituloTarea {
+  margin-bottom: 5px;
+}
+
+.descripcionTarea {
+  margin: 0;
+}
+
+.contenedorCheckboxSuperior {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.tareaCompletada {
+  background-color: #c7c7c765;
+  border-radius: 10px;
+}
+
+.botonEditarTarea,
+.botonEliminarTarea {
+  background-color: #5148ff;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.botonEliminarTarea {
+  background-color: #ab1414;
+}
+
+.checkboxPersonalizado {
+  width: 25px;
+  height: 25px;
+  border: 2px solid #5148ff;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkboxPersonalizado::after {
+  content: '';
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #5148ff;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.checkboxPersonalizado.marcado::after {
+  opacity: 1;
+}
+
+.checkboxCompletado {
+  display: none;
+}
+
+.contenedorCheckbox {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .itemTarea {
+    width: calc(50% - 15px);
+  }
+}
+
+@media (max-width: 576px) {
+  .itemTarea {
+    width: 100%;
+  }
+}
+
+.notas-lista {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  gap: 16px;
+  padding-right: 20px;
+}
+
+.nota-tarjeta {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  width: 225px;
+  height: 130px;
+  border-radius: 10px;
+}
+
+.nota-contenido {
+  padding: 16px;
+  flex-grow: 1;
+  border-bottom: 1px solid #eee;
+}
+
+.nota-titulo {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.nota-parrafo {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.nota-botones {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background-color: #f9f9f900;
+  gap: 20px;
+}
+
+.boton-editar {
+  background-color: #5148ff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.boton-eliminar {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.resumen-container {
+  padding: 40px;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 85px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contador-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.contador-item {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contador-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.contador-item h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+  text-align: center;
+}
+
+.contador {
+  font-size: 48px;
+  font-weight: bold;
+  color: #5148ff;
+  text-align: center;
+}
+
+.estilo {
+  text-transform: none;
+  text-decoration: none;
+  font-weight: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  justify-content: space-between;
+}
