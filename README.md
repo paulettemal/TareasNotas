@@ -1,54 +1,15 @@
-# React + TypeScript + Vite
+# Proyecto de Gestión de Tareas y Notas con Contador
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una aplicación web desarrollada en React que permite a los usuarios agregar tareas y notas. La página principal muestra un contador del total de tareas y notas creadas. Además, las tareas pueden marcarse como "terminadas".
 
-Currently, two official plugins are available:
+## Descripción General
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+La aplicación ofrece una interfaz sencilla para organizar tanto tareas pendientes como notas importantes. En la vista principal, se presenta un resumen numérico de la cantidad total de tareas y notas que el usuario ha añadido. La sección de tareas incluye la funcionalidad para actualizar el estado de una tarea a "terminada", proporcionando así un seguimiento del progreso.
 
-## Expanding the ESLint configuration
+## Funcionalidades Principales
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* **Agregar Tareas:** Permite a los usuarios crear nuevas tareas con una descripción.
+* **Agregar Notas:** Permite a los usuarios crear notas de texto libre.
+* **Contador General:** En la página principal, se muestra un contador dinámico que refleja el número total de tareas y notas agregadas.
+* **Marcar Tareas como Terminadas:** Las tareas pueden ser actualizadas a un estado de "terminado", lo que presumiblemente se reflejará visualmente en la interfaz.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
