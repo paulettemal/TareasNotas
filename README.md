@@ -1,4 +1,4 @@
-# Proyecto de Gestión de Tareas y Notas con Contador
+# Proyecto de gestión de tareas y notas
 
 Este proyecto es una aplicación web desarrollada en React que permite a los usuarios agregar tareas y notas. La página principal muestra un contador del total de tareas y notas creadas. Además, las tareas pueden marcarse como "terminadas".
 
